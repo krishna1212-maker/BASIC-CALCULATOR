@@ -5,30 +5,42 @@ thank you
 */
 
 #include <stdio.h>
+
 int main()
 {
     char operator;
     int a, b;
+
     printf("Hello Welcome to my first self made calculator\n");
     printf("Enter two numbers A and B\n");
-    scanf("%d %d" , & a, &b);
-    printf("Select the operants\n");
-    scanf(" %c" , & operator);
-    if (operator == '+')
+    scanf("%d %d", &a, &b);
+    printf("Select the operator (+, -, *, /)\n");
+    scanf(" %c", &operator);
+
+    switch (operator)
     {
-        printf("The result is: %d" , a+b);
+        case '+':
+            printf("The result is: %d\n", a + b);
+            break;
+
+        case '-':
+            printf("The result is: %d\n", a - b);
+            break;
+
+        case '*':
+            printf("The result is: %d\n", a * b);
+            break;
+
+        case '/':
+            if (b == 0)
+                printf("Error: Cannot divide by zero!\n");
+            else
+                printf("The result is: %d\n", a / b);
+            break;
+
+        default:
+            printf("Error: Invalid operator '%c'\n", operator);
     }
-    if (operator == '-')
-    {
-        printf("The result is: %d" ,  a-b);
-    }
-    if (operator == '*')
-    {
-        printf("The result is: %d" , a*b);
-    }
-    if (operator == '/')
-    {
-        printf("The result is: %d" , a/b);
-    }
+
     return 0;
 }
